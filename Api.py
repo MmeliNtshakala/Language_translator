@@ -1,5 +1,5 @@
-import googletranslate
-from googletranslate import Translator
+import googletrans import Translator
+
 
 # print languages
 print(googletranslate.LANGUAGES)
