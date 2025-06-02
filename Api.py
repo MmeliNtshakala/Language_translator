@@ -1,11 +1,19 @@
 # Importing the necessary library for translation
 from googletrans import Translator
+import json
 
 translator = Translator()
 
 def translate_to_isizulu(massage):
-    translation = translator.translate(massage, src='en', dest='zu')
-    return translation.text
+    try:
+        translation = translator.translate(massage, src='en', dest='zu')
+        responseJson = {
+            "input_text": massage,
+            "translation_of _text": translation.text,
+        }
+        return json.dumps(responseJson, indent=4)
+    except:
+        return json.dumps({"error": "Translation failed"}, indent=4)
 
 """
     Now testing and calling the function to see the functionality
